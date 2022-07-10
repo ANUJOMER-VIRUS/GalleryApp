@@ -14,4 +14,13 @@
         <!-- Customize your theme here. -->
 
     </style>
+
+    <style name="Theme.GalleryApp3.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GalleryApp3.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GalleryApp3.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

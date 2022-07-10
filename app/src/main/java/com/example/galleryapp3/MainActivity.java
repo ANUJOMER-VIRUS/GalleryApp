@@ -56,7 +56,10 @@ else {
      galleryAdapterl=new GalleryAdapter(this, images, new GalleryAdapter.photoListener() {
          @Override
          public void onPhotoClick(String path) {
-          Toast.makeText(MainActivity.this,""+path,Toast.LENGTH_SHORT).show();
+
+          Intent intent=new Intent(MainActivity.this,ImageViewer.class);
+          intent.putExtra("Path",path);
+          startActivity(intent);
 
          }
      });
@@ -77,4 +80,5 @@ else {
             }
         }
     }
+
 }

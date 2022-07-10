@@ -21,7 +21,7 @@ public class ImagesGallery {
         };
         String OrderBy=MediaStore.Video.Media.DATE_TAKEN;
         cursor=context.getContentResolver().query(uri,projection,null,
-                null,OrderBy+"DESC");
+                null,OrderBy+" DESC");
 
         column_index_data=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
 
