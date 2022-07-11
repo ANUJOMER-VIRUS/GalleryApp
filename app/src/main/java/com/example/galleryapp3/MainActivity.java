@@ -56,9 +56,10 @@ else {
      galleryAdapterl=new GalleryAdapter(this, images, new GalleryAdapter.photoListener() {
          @Override
          public void onPhotoClick(String path) {
-
+int pos=images.indexOf(path);
           Intent intent=new Intent(MainActivity.this,ImageViewer.class);
-          intent.putExtra("Path",path);
+          intent.putExtra("imagePath",listtostring(images));
+          intent.putExtra("pos",pos);
           startActivity(intent);
 
          }
@@ -80,5 +81,8 @@ else {
             }
         }
     }
-
+private  String[] listtostring(List<String> list){
+        String arr[]=list.toArray(new String[list.size()]);
+        return arr;
+}
 }

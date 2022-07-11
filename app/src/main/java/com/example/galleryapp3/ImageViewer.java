@@ -15,21 +15,23 @@ import java.io.File;
 public class ImageViewer extends AppCompatActivity {
 
 
-//imagesarray=getIntent().getExtras().getStringArray("Image_array");
 
+ViewPager mViewPager;
 
+    ViewPagerAdapter mViewPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 setContentView(R.layout.activity_image_viewer);
-      String filepath=getIntent().getExtras().getString("Path");
-      File file=new File(filepath);
-      if(file.exists()){
-          Bitmap bitmap=BitmapFactory.decodeFile(file.getAbsolutePath());
-          ZoomableImageView imageView=findViewById(R.id.imageViewq);
-          imageView.setImageBitmap(bitmap);
-      }
 
+int pos=getIntent().getExtras().getInt("pos");
+
+      String filepath[]=getIntent().getExtras().getStringArray("imagePath");
+        mViewPager=(ViewPager)findViewById(R.id.imageViewpager);
+        mViewPagerAdapter=new ViewPagerAdapter(ImageViewer.this,filepath);
+        mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPager.setCurrentItem(pos);
+mViewPager.setPageTransformer(true,new ZoomOutPageTransformer());
 
     }
 }
